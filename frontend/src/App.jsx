@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 
 import "./App.css";
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 function App() {
   const [activities, setActivities] = useState([]);
@@ -107,7 +109,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/maintenance-records"
+        `${API_BASE_URL}/api/maintenance-records`
       );
 
       if (!response.ok) {
@@ -164,7 +166,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/complaint",
+        `${API_BASE_URL}/api/complaint`,
         {
           method: "POST",
           headers: {
